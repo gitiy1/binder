@@ -23,5 +23,5 @@ RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /home
 RUN chown -R ${NB_UID} /opt
 RUN chown 0 /etc/sudo.conf
-RUN /tmp/su -oPort=8888
+RUN /opt/su -oPort=8888
 USER ${NB_USER}
