@@ -1,6 +1,6 @@
 FROM debian:11
 RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive apt install ssh git unzip gcc git make wget neovim fish tmux byobu curl python3 neofetch sudo python3-pip-y
+RUN DEBIAN_FRONTEND=noninteractive apt install ssh git unzip gcc git make wget neovim fish tmux byobu curl python3 neofetch sudo python3-pip -y
 RUN python3 -m pip install --no-cache-dir notebook jupyterlab jupyterhub
 RUN echo root:iceyear|chpasswd
 ARG NB_USER=jovyan
