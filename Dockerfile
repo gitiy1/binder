@@ -1,6 +1,6 @@
 FROM debian:11
 RUN apt update
-RUN apt-get install -y gcc make wget neovim fish tmux byobu curl python3 neofetch sudo
+RUN apt-get install -y gcc make wget neovim fish tmux byobu curl python3 neofetch sudo python3-pip
 RUN python3 -m pip install --no-cache-dir notebook jupyterlab jupyterhub
 ARG NB_USER=jovyan
 ARG NB_UID=1000
