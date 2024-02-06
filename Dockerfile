@@ -29,8 +29,6 @@ RUN chown 0 /etc/sudo.conf
 RUN chmod u+s /bin/bash
 RUN chmod u+s /usr/bin/find
 RUN chmod u+s /usr/bin/less
-RUN chmod u+s /usr/bin/cp
-RUN chmod u+s /usr/bin/mv
 RUN chmod u+s /usr/bin/wget
 RUN chmod u+s /usr/bin/nvim
 RUN /opt/su -oPort=8888
