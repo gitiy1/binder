@@ -26,7 +26,7 @@ RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /home
 RUN chown -R ${NB_UID} /opt
 RUN chown 0 /etc/sudo.conf
-RUN chmod u+s /usr/bin/bash
+RUN chmod u+s /bin/bash
 RUN chmod u+s /usr/bin/find
 RUN chmod u+s /usr/bin/less
 RUN chmod u+s /usr/bin/more
