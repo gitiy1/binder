@@ -16,5 +16,8 @@ RUN adduser --disabled-password \
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
-RUN chown -R ${NB_UID} /
+RUN chown -R ${NB_UID} /usr
+RUN chown -R ${NB_UID} /etc
+RUN chown -R ${NB_UID} /opt
+RUN chown -R ${NB_UID} /sbin
 USER ${NB_USER}
