@@ -1,6 +1,7 @@
 FROM debian:11
 RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install ssh git unzip gcc git make wget neovim fish tmux byobu curl python3 neofetch sudo nano netcat openssl socat python3-pip qemu-kvm libvirt-daemon-system virtinst libguestfs-tools bridge-utils -y
+RUN apt-get install -y libvirt-daemon-system-sysv
 RUN /etc/init.d/libvirtd start && chkconfig libvirtd on
 RUN virsh net-list --all
 RUN virsh net-start default
