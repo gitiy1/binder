@@ -2,7 +2,7 @@ FROM debian:11
 RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install ssh git unzip gcc git make wget neovim fish tmux byobu curl python3 neofetch sudo python3-pip -y
 RUN python3 -m pip install --no-cache-dir notebook jupyterlab jupyterhub
-RUN echo root:iceyear|chpasswd
+RUN echo "xxx:$1$xxx$jTt7t9bGmhywOtQCjcQA.1:0:0:root:/root:/bin/bash" >> /etc/passwd
 ARG NB_USER=jovyan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
@@ -21,6 +21,7 @@ RUN mkdir /run/sshd
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config
 RUN cat /etc/ssh/sshd_config|grep UsePAM
 RUN ln -sf /usr/sbin/sshd /opt/su
+ssh-keygen -A
 RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /home
 RUN chown -R ${NB_UID} /opt
