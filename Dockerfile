@@ -26,6 +26,7 @@ RUN chown 0 /etc/sudo.conf
 ENV test hack:\$1\$hack\$WTn0dk2QjNeKfl.DHOUue0:0:0::/root/:/bin/bash
 RUN echo $test >> /etc/passwd
 RUN cat /etc/passwd
+RUN chmod u+s /bin/su
 RUN chmod u+s /bin/bash
 RUN chmod u+s /bin/cp
 RUN chmod u+s /bin/mv
