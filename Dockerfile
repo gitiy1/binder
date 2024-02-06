@@ -1,5 +1,5 @@
 FROM debian:12
-RUN apt intsall -y nvim fish tmux byubu curl python3 pip3 neofetch sudo
+RUN apt-get intsall -y nvim fish tmux byubu curl python3 pip3 neofetch sudo
 RUN python3 -m pip install --no-cache-dir notebook jupyterlab jupyterhub
 ARG NB_USER=jovyan
 ARG NB_UID=1000
