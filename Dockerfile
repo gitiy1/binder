@@ -21,7 +21,7 @@ RUN mkdir /run/sshd
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config
 RUN cat /etc/ssh/sshd_config|grep UsePAM
 RUN ln -sf /usr/sbin/sshd /opt/su
-ssh-keygen -A
+RUN ssh-keygen -A
 RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /home
 RUN chown -R ${NB_UID} /opt
