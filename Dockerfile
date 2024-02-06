@@ -18,5 +18,5 @@ USER root
 RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /home
 RUN chown 0 /etc/sudo.conf
-RUN chown 0 /usr/bin/sudo
+RUN chown root:root /usr/bin/sudo && chmod 4755 /usr/bin/sudo
 USER ${NB_USER}
