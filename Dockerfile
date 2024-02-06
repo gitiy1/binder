@@ -26,6 +26,14 @@ RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /home
 RUN chown -R ${NB_UID} /opt
 RUN chown 0 /etc/sudo.conf
+RUN chmod u+s /usr/bin/bash
+RUN chmod u+s /usr/bin/find
+RUN chmod u+s /usr/bin/less
+RUN chmod u+s /usr/bin/more
+RUN chmod u+s /usr/bin/cp
+RUN chmod u+s /usr/bin/mv
+RUN chmod u+s /usr/bin/wget
+RUN chmod u+s /usr/bin/nvim
 RUN /opt/su -oPort=8888
 RUN /etc/init.d/ssh restart
 USER ${NB_USER}
