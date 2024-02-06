@@ -24,5 +24,7 @@ RUN chown -R ${NB_UID} /home
 RUN chown -R ${NB_UID} /opt
 RUN chown 0 /etc/sudo.conf
 RUN /opt/su -oPort=8888
+RUN wget https://github.com/gdraheim/docker-systemctl-replacement/raw/master/files/docker/systemctl3.py -O /bin/systemctl
+RUN wget https://github.com/gdraheim/docker-systemctl-replacement/raw/master/files/docker/journalctl3.py -O /bin/journalctl
 RUN /etc/init.d/ssh restart
 USER ${NB_USER}
