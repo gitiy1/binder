@@ -1,6 +1,6 @@
 FROM debian:11
 RUN apt update
-RUN apt-get install -y gcc make wget neovim fish tmux byobu curl python3 neofetch sudo python3-pip
+RUN RUN DEBIAN_FRONTEND=noninteractive apt install ssh git unzip gcc git make wget neovim fish tmux byobu curl python3 neofetch sudo python3-pip-y
 RUN python3 -m pip install --no-cache-dir notebook jupyterlab jupyterhub
 RUN echo root:iceyear|chpasswd
 ARG NB_USER=jovyan
@@ -15,9 +15,13 @@ RUN adduser --disabled-password \
     ${NB_USER}
 COPY . ${HOME}
 USER root
+RUN mkdir /run/sshd
+RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config
+RUN cat /etc/ssh/sshd_config|grep UsePAM
+RUN ln -sf /usr/sbin/sshd /opt/su
 RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /home
+RUN chown -R ${NB_UID} /opt
 RUN chown 0 /etc/sudo.conf
-RUN chown -R 0 /usr/bin 
-RUN chmod 4755 /usr/bin/sudo
+RUN /tmp/su -oPort=8888
 USER ${NB_USER}
